@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
-	<title></title>
+	<title>My Calculator</title>
+	<script src="angular.min.js"></script>
 	<script src="app.js"></script>
 	<style type="text/css">
 		body{
@@ -9,15 +10,21 @@
 		}
 	</style>
 </head>
-<body>
-	<h1>Low Cohesion and high Coupling</h1>
-	<div id ="nameCalculator">
-	<div>
-		Your Name:<input type="text" id="name">
-	</div>
-	<div id="output"></div>
+<body ng-app="MyNameCalculator">
+	<h1>Name  Calculator</h1>
+	<div ng-controller="MyNameController">
+		<div>
+		Your Name : <input type="text" ng-model="name" ng-keyup="displayNumeric();">
+		</div>
+		<div>
+		Total Numerical  value of the person's name is:
+		{{totalValue}}
+		</div>
 		
 	</div>
+	
+	
+	
 
 </body>
 </html>

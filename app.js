@@ -1,27 +1,28 @@
-var student = {
-	name: "",
-	type: "student"
-};
-console.log(" I am here");
-document.addEventListener('DOMContentLoaded', contentLoaded);
-function contentLoaded(event){
-	document.getElementById("name").addEventListener("keyup",keyUp);
+(function(){
+	'use strict'
+	angular.module('MyNameCalculator',[])
+	.controller('MyNameController',function($scope){
+		$scope.name="";
+		$scope.totalValue=0;
+		$scope.displayNumeric= function(){
 
-}
+			$scope.totalValue=convertStringtoValue($scope.name);;
 
-function keyUp(event){
-	calculateTheNameOutput();
-}
+		};
+		function convertStringtoValue(string){
+			var totalStringValue=0;
+			for(var i =0; i < string.length ;i++){
+				totalStringValue+=string.charCodeAt(i);
 
-function calculateTheNameOutput(){
-	student.name = document.getElementById("name").value;
+			}
 
-	var totalNumber =0;
-	for(i =0 ; i< student.name.length;i++){
-		totalNumber+=student.name.charCodeAt(i);
-	}
+			return totalStringValue;
 
-	var output = " Total Numeric valuee of the Persons name is "+ totalNumber;
-	document.getElementById("output").innerText= output;
 
-}
+		}
+
+
+		
+
+	});
+})();
